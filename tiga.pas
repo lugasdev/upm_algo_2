@@ -2,16 +2,33 @@ Program tiga;
 uses crt;
 
 type
-    intArray = array[1..50] of integer;
+    arr_int = array[1..50] of integer;
 
 var
-    i, j, temp, total:integer;
-    rata: double;
-    arr: intArray;
+    i, j, temp, nil_total:integer;
+    nil_rata: real;
+    arr: arr_int;
 
-function bubblesort(var arr: intArray):intArray;
 begin
-    for i := (Length(arr) - 1) downto 1 do
+    clrscr;
+
+    nil_rata := 742/50;
+
+    writeln(nil_rata:2,2);
+
+    for i := 1 to 50 do
+    begin
+        write('masukkan array ke-', i, ' : ');
+        readln(arr[i]);
+    end;
+
+    writeln('Data yang diinput: ');
+    for i := 1 to 50 do
+        write(arr[i], ' ');
+
+    writeln();
+
+    for i := (50 - 1) downto 1 do
     begin
         for j := 1 to i do
         begin
@@ -24,39 +41,20 @@ begin
         end;
     end;
 
-    bubblesort := arr;
-end;
-
-begin
-    clrscr;
-
-    for i := 1 to 50 do
-    begin
-        write('masukkan array ke-', i, ' : ');
-        readln(arr[i]);
-    end;
-
-    writeln('Data yang diinput: ');
-    for i := 1 to Length(arr) do
-        write(arr[i], ' ');
-
-    writeln();
-
-    arr := bubblesort(arr);
-    total := 0;
+    nil_total := 0;
 
     writeln('Data setelah diurutkan: ');
-    for i := 1 to Length(arr) do
+    for i := 1 to 50 do
     begin
         write(arr[i], ' ');
-        total := total + arr[i];
+        nil_total := nil_total + arr[i];
     end;
 
-    rata := total/50;
+    nil_rata := nil_total/50;
 
     writeln();
     writeln('Nilai terbesar ', arr[50]);
     writeln('Nilai terkecil ', arr[1]);
-    writeln('Nilai rata-rata ', rata);
+    writeln('Nilai rata-rata ', nil_rata:2,2);
 
 end.
